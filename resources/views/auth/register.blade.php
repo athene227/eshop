@@ -3,13 +3,32 @@
 <div class="cotainer z-0 h-[100vh] inset-0 absolute mx-auto pt-[100px] flex">
     <div class="min-w-[400px] w-[400px] lg:w-[500px] m-auto rounded-xl drop-shadow-[0_15px_15px_rgba(173,173,173,0.5)] bg-white px-[30px] py-[30px]">
         <header class="w-full text-center mt-[10px] mb-[40px]">
-            <h2 class="font-bold text-[#24419A] text-[50px]">LOGIN</h2>
+            <h2 class="font-bold text-[#24419A] text-[50px]">SIGN UP</h2>
         </header>
-        {{-- <button class="bg-blue-500 text-white w-full py-2 rounded shadow-[0_4px_4px_rgba(0,0,0,0.3)] hover:bg-blue-700">
-            <i class="fa fa-google mr-4"></i>Sign in with Google
-        </button> --}}
-        <form method="POST" action="{{ route('login') }}" class="mt-4">
+        <form method="POST" action="{{ route('register') }}" class="mt-4">
             @csrf
+            <div>
+                <label class="mb-2 text-blue-500" for="email">
+                    <i class="fa fa-user"></i>
+                    First Name
+                </label>
+                <input type="text" placeholder="First Name" id="first_name" class="w-full p-2 mt-2 mb-6 border-b-2 border-blue-500 outline-none focus:bg-gray-300" name="first_name" required
+                    autofocus>
+                @if ($errors->has('first_name'))
+                <span class="text-danger">{{ $errors->first('first_name') }}</span>
+                @endif
+            </div>
+            <div>
+                <label class="mb-2 text-blue-500" for="last_name">
+                    <i class="fa fa-user"></i>
+                    Last Name
+                </label>
+                <input type="text" placeholder="Last Name" id="last_name" class="w-full p-2 mt-2 mb-6 border-b-2 border-blue-500 outline-none focus:bg-gray-300" name="last_name" required
+                    autofocus>
+                @if ($errors->has('last_name'))
+                <span class="text-danger">{{ $errors->first('last_name') }}</span>
+                @endif
+            </div>
             <div>
                 <label class="mb-2 text-blue-500" for="email">
                     <i class="fa fa-envelope"></i>
@@ -39,14 +58,10 @@
                     </label>
                 </div>
                 <button type="submit" class="rounded px-6 py-2 text-white text-bold bg-blue-500 hover:bg-blue-700">
-                    Sign in<i class="fa fa-right-from-bracket ml-2"></i>
+                    Sign up<i class="fa fa-right-from-bracket ml-2"></i>
                 </button>
             </div>
         </form>
-        <footer class="mt-4 flex justify-between">
-            <a class="text-blue-700 hover:text-pink-700 text-sm" href="#">Forgot Password?</a>
-            <a class="text-blue-700 hover:text-pink-700 text-sm" href="{{ route('registerView') }}">Create Account</a>
-        </footer>
     </div>
 </div>
 @endsection

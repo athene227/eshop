@@ -2,45 +2,21 @@
 
 @section('content')
     <!-- Welcome Begin -->
-    <div class="z-0 w-full min-w-[500px] px-[50px] lg:px-[5%] grid grid-cols-1 lg:grid-cols-2 bg-gradient-to-tr from-[#30B1BF] to-[#2B1D6E] gap-[50px] lg:gap-[5%]">
-        <div class="mt-[100px] lg:mt-[35%] text-white">
-            <h1 class="text-[50px] whitespace-pre-wrap">Welcome to our shop</h1>
-            <p class="mt-4 text-2xl">
-               We greet every client as an opportunity to grow our community. Get your dream goods from our store.
+    <div class="w-full h-[100vh] absolute inset-0 pt-[100px] px-[100px] md:grid md:grid-cols-2 z-0">
+        <div class="my-auto text-center">
+            <h1 class="text-[50px] font-bold whitespace-pre-wrap text-[#24419A]">Welcome to our shop</h1>
+            <p class="mt-4 text-[20px] font-semibold">
+               We greet every client as an opportunity to grow our community.
+               <br>Get your dream goods from our store.
             </p>
-            <button class="bg-white mt-8 rounded-full py-4 px-10 flex items-center gap-2 hover:bg-gray-100 text-gray-900">
+            <button class="bg-[#24419A] text-white mt-8 rounded-full py-4 px-10 flex items-center mx-auto gap-2 hover:bg-[#2441A9]">
                 <p class="text-2xl inline">Go shopping</p>
                 <i class="fa fa-chevron-right mt-1"></i>
             </button>
         </div>
-        <div class="flex py-[50px]">
-            <div class="mx-auto grid grid-cols-2 gap-4">
-                <a href="#" class="overflow-clip bg-white">
-                    <img src="/images/tile1.png" class="hover:opacity-70 transition ease-in-out hover:scale-110">
-                </a>
-                <a href="#" class="overflow-clip bg-white">
-                    <img src="/images/tile2.png" class="hover:opacity-70 transition ease-in-out hover:scale-110">
-                </a>
-                <a href="#" class="overflow-clip bg-white">
-                    <img src="/images/tile3.png" class="hover:opacity-70 transition ease-in-out hover:scale-110">
-                </a>
-                <a href="#" class="overflow-clip bg-white">
-                    <img src="/images/tile4.png" class="hover:opacity-70 transition ease-in-out hover:scale-110">
-                </a>
-                <a href="#" class="overflow-clip bg-white">
-                    <img src="/images/tile5.png" class="hover:opacity-70 transition ease-in-out hover:scale-110">
-                </a>
-                <a href="#" class="overflow-clip bg-white">
-                    <img src="/images/tile6.png" class="hover:opacity-70 transition ease-in-out hover:scale-110">
-                </a>
-            </div>
+        <div class="h-full bg-[url(assets/images/hand.jpg)] bg-contain bg-center bg-no-repeat">
         </div>
     </div>
     <!-- Welcome End -->
-
-    <!-- Services Begin -->
-    <div class="w-full px-[50px]">
-
-    </div>
-    <!-- Services End -->
 @endsection
+

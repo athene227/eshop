@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', [AuthController::class, 'dashboard']);
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::get('custom-login', [AuthController::class, 'customLogin'])->name('login.custom');
-Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('singout', [AuthController::class, 'signOut'])->name('signout');
+Route::get('login', [AuthController::class, 'loginView'])->name('loginView');
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::get('signup', [AuthController::class, 'registerView'])->name('registerView');
+Route::post('signup', [AuthController::class, 'register'])->name('register');
+Route::get('singout', [AuthController::class, 'signout'])->name('signout');

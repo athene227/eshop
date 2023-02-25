@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     public function index()
     {
+    }
+
+    public function loginView()
+    {
         return view('auth.login');
     }
 
-    public function customLogin(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -27,15 +35,16 @@ class AuthController extends Controller
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
-    public function registration()
+    public function registerView()
     {
-        return view('auth.registration');
+        return view('auth.register');
     }
 
-    public function customRegistration(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -49,7 +58,8 @@ class AuthController extends Controller
     public function create(array $data)
     {
       return User::create([
-        'name' => $data['name'],
+        'first_name' => $data['first_name'],
+        'last_name' => $data['last_name'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
@@ -64,7 +74,7 @@ class AuthController extends Controller
         return redirect("login")->withSuccess('You are not allowed to access');
     }
 
-    public function signOut() {
+    public function signout() {
         Session::flush();
         Auth::logout();
 

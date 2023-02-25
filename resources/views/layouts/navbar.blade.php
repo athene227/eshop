@@ -1,42 +1,38 @@
-<nav class="fixed w-full h-[76px] flex bg-white z-20">
-    <div class="w-[90%] px-[30px] m-auto">
-        <div class="flex h-full">
-            <div class="flex w-1/3 h-full items-center">
+<nav class="fixed w-full h-[100px] flex bg-white px-[100px] z-20">
+    <div class="px-[30px] m-auto w-full">
+        <div class="flex h-full pb-[10px] border-b">
+            <div class="flex grow h-full items-center">
                 <a href="/" class="">
-                    <img src="/images/logo.png" class="w-[100px] h-[40px]" />
+                    <img src="{{asset('assets/images/logo.jpg')}}" class="w-auto h-[40px]" />
                 </a>
             </div>
-            <div class="flex flex-row-reverse w-2/3 items-center">
-                <ul class="text-[#1D80BB] font-semibold">
-                    <li class="relative inline-block m-0">
-                        <a href="#" class="p-[15px] text-md">SHOP</a>
-                    </li>
-                    <li class="relative inline-block m-0">
-                        <a href="#" class="p-[15px] text-md">SERVICES</a>
-                    </li>
-                    <li class="relative inline-block m-0">
-                        <a href="#" class="p-[15px] text-md">ABOUT US</a>
-                    </li>
-                    <li class="relative inline-block m-0">
-                        <a href="#" class="p-[15px] text-md">CONTACT</a>
-                    </li>
-                    <li class="relative inline-block m-0">
-                        <a href="/login" class="px-[7.5px] py-[15px]">
+            <ul class="flex flex-row items-center text-[#24419A] font-semibold text-[18px] gap-6">
+                <li>
+                    <a href="/" class="p-[15px] nav-item">HOME</a>
+                </li>
+                <li>
+                    <a href="/services" class="p-[15px] nav-item">SERVICES</a>
+                </li>
+                <li>
+                    <a href="/aboutus" class="p-[15px] nav-item">ABOUT US</a>
+                </li>
+                <li>
+                    <a href="/contact" class="p-[15px] nav-item">CONTACT</a>
+                </li>
+                <li>
+                    @unless(Auth::check())
+                        <a href="{{ route('loginView') }}">
                             <i class="fa fa-user"></i>
                         </a>
-                    </li>
-                    <li class="relative inline-block m-0">
-                        <a class="px-[7.5px] py-[15px]">
-                            <i class="fa fa-search"></i>
-                        </a>
-                    </li>
-                    <li class="relative inline-block m-0">
-                        <a class="px-[7.5px] py-[15px]">
-                            <i class="fa fa-cart-shopping"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    @endunless
+                    <a class="px-[7.5px] py-[15px]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a class="px-[7.5px] py-[15px]">
+                        <i class="fa fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

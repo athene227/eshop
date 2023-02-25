@@ -4,13 +4,12 @@
         <title></title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://kit.fontawesome.com/7fd45d627d.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     </head>
     <body>
         @stack('style')
-        <header class="h-[76px] z-20">
-            @include('layouts.navbar')
-        </header>
+        @include('layouts.navbar')
         <main>
             @yield('content')
         </main>

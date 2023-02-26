@@ -19,9 +19,9 @@
                 <li>
                     <a href="/contact" class="p-[15px] nav-item">CONTACT</a>
                 </li>
-                <li>
-                    @unless(Auth::check())
-                        <a href="{{ route('loginView') }}">
+                <li class="h-full flex items-center gap-2">
+                    @unless (Auth::check())
+                        <a href="{{ route('loginView') }}" class="px-[7.5px] py-[15px]">
                             <i class="fa fa-user"></i>
                         </a>
                     @endunless
@@ -31,6 +31,20 @@
                     <a class="px-[7.5px] py-[15px]">
                         <i class="fa fa-cart-shopping"></i>
                     </a>
+                    @if (Auth::check())
+                    <div class="relative">
+                        <button id="my_account" class="h-12 w-12 rounded-full ring-2 ring-white overflow-clip">
+                            <img src="{{asset('assets/images/avatars/default.jpg')}}" />
+                        </button>
+                        <ul id="account_menu" class="absolute right-0 z-30 bg-white p-2 border flex flex-col hidden">
+                            <a href="{{route('account')}}" class="px-4 py-2 w-max hover:bg-gray-200">My account</a>
+                            <a href="#" class="px-4 py-2 hover:bg-gray-200">My goods</a>
+                            <a href="#" class="px-4 py-2 hover:bg-gray-200 flex gap-2 items-center border-t">
+                                Sign out<i class="fa fa-arrow-right-from-bracket"></i>
+                            </a>
+                        </ul>
+                    </div>
+                    @endif
                 </li>
             </ul>
         </div>

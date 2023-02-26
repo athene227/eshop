@@ -2,10 +2,11 @@
 <html>
     <head>
         <title></title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
         <script src="https://kit.fontawesome.com/7fd45d627d.js"></script>
         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+        @vite('resources/css/app.css')
     </head>
     <body>
         @stack('style')
@@ -23,6 +24,9 @@
         @stack('script')
         <script type="text/javascript">
             $(document).ready(function () {
+                $("#my_account").click(function() {
+                    $("#account_menu").toggleClass('hidden');
+                })
                 $("#loading").removeClass("animate-spin");
                 $("#loading-wrapper").addClass("hidden");
             })

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StripePaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('dashboard', [AuthController::class, 'dashboard']);
+Route::get('account', [AuthController::class, 'show'])->name('account');
+
 Route::get('login', [AuthController::class, 'loginView'])->name('loginView');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::get('signup', [AuthController::class, 'registerView'])->name('registerView');
 Route::post('signup', [AuthController::class, 'register'])->name('register');
 Route::get('singout', [AuthController::class, 'signout'])->name('signout');
+
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe', 'stripe');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
+});

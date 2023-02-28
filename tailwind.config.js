@@ -1,3 +1,5 @@
+const plugin  = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,7 +8,22 @@ module.exports = {
     "./resources/**/*.vue"
   ],
   theme: {
-    extend: {},
+    extend: {
+        colors: {
+            'darkblue': {
+                DEFAULT: '#24419A',
+                dark: '#2441A9',
+            }
+        }
+    },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addUtilities, addComponents, e, config}) {
+        addComponents({
+            'input': {
+                'padding': '8px'
+            }
+        });
+    })
+  ],
 }

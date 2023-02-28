@@ -9,16 +9,6 @@ use Illuminate\Http\Request;
 class StripePaymentController extends Controller
 {
     /**
-     * success response method.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function stripe()
-    {
-        return view('stripe', ['price' => 100]);
-    }
-
-    /**
      * stripe response method
      *
      * @return \Illuminate\Http\Response
@@ -34,7 +24,6 @@ class StripePaymentController extends Controller
             "description" => "Test payment from itsolutionstuff.com"
         ]);
 
-        Session::flash('success', 'Payment successful!');
-        return view('stripe', ['price' => 100]);
+        return redirect('payment')->with(['code' => 1, 'price' => 100]);
     }
 }

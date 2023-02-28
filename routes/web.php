@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +30,15 @@ Route::post('signup', [AuthController::class, 'register'])->name('register');
 Route::get('singout', [AuthController::class, 'signout'])->name('signout');
 
 Route::controller(StripePaymentController::class)->group(function () {
-    Route::get('stripe', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
+});
+
+Route::controller(PayPalController::class)->group(function () {
+    Route::get('paypal', 'payment')->name('paypal');
+    Route::get('paypal/cancel', 'cancel')->name('paypal.cancel');
+    Route::get('paypal/success', 'success')->name('paypal.success');
+});
+
+Route::controller(PaymentController::class)->group(function () {
+    Route::get('payment', 'index')->name('payment');
 });

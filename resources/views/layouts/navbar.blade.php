@@ -6,7 +6,7 @@
                     <img src="{{asset('assets/images/logo.jpg')}}" class="w-auto h-[40px]" />
                 </a>
             </div>
-            <ul class="flex flex-row items-center text-[#24419A] font-semibold text-[18px] gap-6">
+            <ul class="flex flex-row items-center text-darkblue font-semibold text-[18px] gap-6">
                 <li>
                     <a href="/" class="p-[15px] nav-item">HOME</a>
                 </li>

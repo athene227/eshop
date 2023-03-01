@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +43,6 @@ Route::controller(PayPalController::class)->group(function () {
 Route::controller(PaymentController::class)->group(function () {
     Route::get('payment', 'index')->name('payment');
 });
+
+Route::resource('services', ServiceController::class);
+Route::get('list', [ServiceController::class, 'showlist'])->name('services.list');

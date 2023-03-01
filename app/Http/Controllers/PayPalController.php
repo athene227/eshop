@@ -12,7 +12,7 @@ class PayPalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payment()
+    public function payment(Request $request)
     {
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
@@ -70,7 +70,8 @@ class PayPalController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()
-                ->route('paypal.success');
+                ->route('payment')
+                ->with('price', 1000);
         } else {
             return redirect()
                 ->route('paypal.succes');

@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Welcome Begin -->
-    <div class="w-full h-[100vh] absolute inset-0 pt-[100px] px-[100px] md:grid md:grid-cols-2 md:gap-2 z-0">
+    <div class="w-full h-[100vh] absolute inset-0 pt-[76px] px-[100px] md:grid md:grid-cols-2 md:gap-2 z-0">
         <div class="my-auto text-center">
             <h1 class="text-[50px] font-bold whitespace-pre-wrap text-darkblue">Welcome to our shop</h1>
             <p class="mt-4 text-[20px] font-semibold">

@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('content')
-<div class="cotainer z-0 h-[100vh] inset-0 absolute mx-auto pt-[100px] flex">
+<div class="cotainer z-0 h-[100vh] inset-0 absolute mx-auto pt-[76px] flex">
     <div class="min-w-[400px] w-[400px] lg:w-[500px] m-auto rounded-xl drop-shadow-[0_15px_15px_rgba(173,173,173,0.5)] bg-white px-[30px] py-[30px]">
         <header class="w-full text-center mt-[10px] mb-[40px]">
             <h2 class="font-bold text-[#24419A] text-[50px]">LOGIN</h2>

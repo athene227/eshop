@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="absolute pt-[100px] h-full flex justify-center items-center w-full">
+<div class="absolute pt-[76px] h-full flex justify-center items-center w-full">
     <div class="border rounded p-5">
         <h3 class="text-3xl font-bold text-center" >Payment Details</h3>
         @if (Session::get('code') == 1)

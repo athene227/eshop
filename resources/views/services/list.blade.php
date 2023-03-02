@@ -13,7 +13,7 @@
                     {{$item->name}}
                 </p>
                 <p class="text-gray-600">
-                    ${{$item->price}}
+                    ${{number_format($item->price)}}
                 </p>
             </div>
         </div>

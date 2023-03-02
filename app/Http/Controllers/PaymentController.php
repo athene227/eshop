@@ -9,9 +9,10 @@ class PaymentController extends Controller
 {
     public function index(Request $request)
     {
-        if (isset($request->params['price'])) $price = $request['price'];
+        $query = $request->all();
+        if (array_key_exists('price', $query)) $price = $query['price'];
         else $price = Session::get('price');
-        if (isset($request->params['code'])) $code = $request['code'];
+        if (array_key_exists('code', $query)) $code = $query['code'];
         else $code = Session::get('code');
 
         return view('payment.index', ['code' => $code, 'price' => $price]);

@@ -19,7 +19,7 @@
                 <li class="h-full">
                     <a href="/contact" class="px-[15px] flex h-full items-center nav-item">CONTACT</a>
                 </li>
-                <li class="h-full flex pt-[10px] items-center gap-2">
+                <li class="h-full flex items-center gap-2">
                     @unless (Auth::check())
                         <a href="{{ route('loginView') }}" class="px-[7.5px] py-[15px]">
                             <i class="fa fa-user"></i>

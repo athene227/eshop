@@ -11,7 +11,7 @@
                 {{$item->name}}
             </h2>
             <p class="text-gray-400 mt-2">
-                ${{$item->price}}
+                ${{number_format($item->price)}}
             </p>
             <div class="mt-4">
                 @auth
@@ -20,7 +20,7 @@
                 </a>
                 @endauth
                 @guest
-                    <a href="{{route('loginView')}}" class="px-[20px] py-[10px] bg-darkblue hover:bg-darkblue-dark text-white">
+                    <a href="{{route('loginView')}}" class="rounded px-[20px] py-[10px] bg-darkblue hover:bg-darkblue-dark text-white">
                         Login to Purchase
                     </a>
                 @endguest

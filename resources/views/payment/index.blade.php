@@ -11,7 +11,7 @@
             </div>
         @endif
         <h1 class="text-center text-2xl font-semibold mt-4">
-            $ {{ isset($price) ? $price : Session::get('price') }}
+            $ {{ isset($price) ? number_format($price) : number_format(Session::get('price')) }}
         </h1>
         <div class="flex items-center justify-around mt-[20px]">
             <div class="flex items-center gap-2">
@@ -25,10 +25,12 @@
         </div>
         <div class="grid grid-cols-1 gap-4 mt-[20px] w-[500px] min-w-[500px] h-[280px]">
             <div id="stripe_form">
-                @include('payment.stripe')
+                @component('payment.stripe', ['price' => $price])
+                @endcomponent
             </div>
             <div id="paypal_form" class="hidden">
-                @include('payment.paypal')
+                @component('payment.paypal', ['price' => $price])
+                @endcomponent
             </div>
         </div>
     </div>

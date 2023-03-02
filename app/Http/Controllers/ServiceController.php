@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Good;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,8 @@ class ServiceController extends Controller
     public function create()
     {
         //
+        return view('services.create')
+            ->with('default_image', Good::DEFAULT_IMAGE);
     }
 
     /**
@@ -50,6 +53,22 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         //
+        $item = new Good;
+        $item->name = $request->name;
+        $item->price = $request->price;
+        $item->amount = $request->amount;
+        $item->user_id = Auth::user()->id;
+        $item->image = Good::DEFAULT_IMAGE;
+
+        $image = $request->file('image');
+        if ($image && $image != '') {
+            $extension = $image->getClientOriginalExtension();
+            $imageName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME).'.'.time().$extension;
+            $image->move('assets/images/goods/', $imageName);
+            $item->image = $imageName;
+        }
+        $item->save();
+        return redirect()->route('services.index');
     }
 
     /**

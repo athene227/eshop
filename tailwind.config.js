@@ -18,12 +18,6 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function({ addUtilities, addComponents, e, config}) {
-        addComponents({
-            'input': {
-                'padding': '8px'
-            }
-        });
-    })
+    require('@tailwindcss/forms'),
   ],
 }

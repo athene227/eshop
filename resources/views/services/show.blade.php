@@ -15,7 +15,7 @@
             </p>
             <div class="mt-4">
                 @auth
-                <a href="{{route('payment')}}?price={{$item->price}}" class="px-[20px] py-[10px] bg-darkblue hover:bg-darkblue-dark text-white rounded">
+                <a href="{{route('payment')}}?good={{$item->id}}" class="px-[20px] py-[10px] bg-darkblue hover:bg-darkblue-dark text-white rounded">
                     Purchase
                 </a>
                 @endauth

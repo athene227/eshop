@@ -2,7 +2,8 @@
     class="require-validation mt-[15px] mx-[20px]" data-cc-on-file="false"
     data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
     @csrf
-    <input type="hidden" name="price" value="{{$price}}" />
+    <input type="hidden" name="id" value="{{$item->id}}" />
+    <input type="hidden" name="price" value="{{$item->price}}" />
     <div class="required">
         <label for="name" class="font-semibold">Name on Card</label>
         <input class='border rounded w-full' name="name" size='4' type='text'>

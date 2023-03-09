@@ -4,14 +4,19 @@
 <div class="absolute pt-[76px] h-full flex justify-center items-center w-full">
     <div class="border rounded p-5">
         <h3 class="text-3xl font-bold text-center" >Payment Details</h3>
-        @if (Session::get('code') == 1)
-            <div class="rounded border bg-green-300 mt-4 flex justify-between p-2">
+        @if ($code == 1)
+            <div class="rounded border bg-green-500 mt-4 flex justify-between p-3">
                 <p>Payment Successful!</p>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            </div>
+        @elseif ($code == 0)
+            <div class="rounded border bg-red-500 mt-4 flex justify-between p-2">
+                <p>{{$message}}</p>
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
             </div>
         @endif
         <h1 class="text-center text-2xl font-semibold mt-4">
-            $ {{ isset($price) ? number_format($price) : number_format(Session::get('price')) }}
+            $ {{  number_format($item->price) }}
         </h1>
         <div class="flex items-center justify-around mt-[20px]">
             <div class="flex items-center gap-2">
@@ -25,11 +30,11 @@
         </div>
         <div class="grid grid-cols-1 gap-4 mt-[20px] w-[500px] min-w-[500px] h-[280px]">
             <div id="stripe_form">
-                @component('payment.stripe', ['price' => $price])
+                @component('payment.stripe', ['item' => $item])
                 @endcomponent
             </div>
             <div id="paypal_form" class="hidden">
-                @component('payment.paypal', ['price' => $price])
+                @component('payment.paypal', ['price' => $item->price])
                 @endcomponent
             </div>
         </div>

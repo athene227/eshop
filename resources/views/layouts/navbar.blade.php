@@ -37,9 +37,9 @@
                             <img src="{{asset('assets/images/avatars/default.jpg')}}" />
                         </button>
                         <ul id="account_menu" class="absolute right-0 z-30 bg-white border flex flex-col hidden">
-                            <a href="{{route('account')}}" class="px-4 py-2 w-max hover:bg-gray-200">My account</a>
-                            <a href="#" class="px-4 py-2 hover:bg-gray-200">My goods</a>
-                            <a href="{{route('signout')}}" class="px-4 py-2 hover:bg-gray-200 flex gap-2 items-center border-t">
+                            {{-- <a href="{{route('user.index')}}" class="px-4 py-2 w-max hover:bg-gray-200">My account</a> --}}
+                            <a href="{{route('user.goods')}}" class="px-4 py-2 hover:bg-gray-200 min-w-max">My goods</a>
+                            <a href="{{route('signout')}}" class="px-4 py-2 min-w-max hover:bg-gray-200 flex gap-2 items-center border-t">
                                 Sign out<i class="fa fa-arrow-right-from-bracket"></i>
                             </a>
                         </ul>

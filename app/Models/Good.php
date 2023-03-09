@@ -16,4 +16,9 @@ class Good extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function buyers()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

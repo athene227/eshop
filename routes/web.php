@@ -5,6 +5,7 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('account', [AuthController::class, 'show'])->name('account');
+Route::resource('user', UserController::class);
+Route::get('goods', [UserController::class, 'goods'])->name('user.goods');
 
 Route::get('login', [AuthController::class, 'loginView'])->name('loginView');
 Route::post('login', [AuthController::class, 'login'])->name('login');

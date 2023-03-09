@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Stripe;
 use Session;
+use App\Models\Good;
 use Illuminate\Http\Request;
 
 class StripePaymentController extends Controller
@@ -17,13 +18,19 @@ class StripePaymentController extends Controller
     {
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
+        $good = Good::find($request->id);
+
+        if ($good->amount == 0) {
+            return to_route('payment', ['code' => 0, 'good' => $good->id, 'message' => 'No goods left.']);
+        }
+
         Stripe\Charge::create ([
-            "amount" => $request->price * 100,
+            "amount" => $good->price * 100,
             "currency" => "usd",
             "source" => $request->stripeToken,
-            "description" => "Test payment from itsolutionstuff.com"
+            "description" => "Payment for ".$good->name
         ]);
 
-        return redirect('payment')->with(['code' => 1, 'price' => $request->price]);
+        return to_route('payment', ['code' => 1, 'good' => $good->id, 'message' => 'Payment Successful!']);
     }
 }
